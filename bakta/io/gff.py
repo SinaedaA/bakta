@@ -6,6 +6,7 @@ from typing import Dict, Sequence, Union
 import bakta
 import bakta.config as cfg
 import bakta.constants as bc
+import bakta.features.annotation as ba
 import bakta.io.fasta as fasta
 import bakta.io.insdc as insdc
 import bakta.so as so
@@ -144,9 +145,12 @@ def write_gff3(genome: dict, features_by_contig: Dict[str, dict], gff3_path: Pat
                         gene_id = f"{feat['locus']}_gene"
                         gene_annotations = {
                             'ID': gene_id,
-                            'locus_tag': feat['locus'],
-                            'gene': feat['gene']
+                            'locus_tag': feat['locus']
                         }
+                        if(ba.RE_GENE_SYMBOL.fullmatch(feat['gene'])):  # discard non-standard ncRNA gene symbols
+                            gene_annotations['gene'] = feat['gene']
+                        else:
+                            annotations.pop('gene')
                         annotations['Parent'] = gene_id
                         for rfam_id in [dbxref.split(':')[1] for dbxref in feat['db_xrefs'] if dbxref.split(':')[0] == bc.DB_XREF_RFAM]:
                             annotations['inference'] = f'profile:Rfam:{rfam_id}'
