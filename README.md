@@ -575,11 +575,11 @@ Please have all additional files (manifest.tsv, chrom-list.tsv) prepared as desc
 
 ```bash
 # download ENA Webin-CLI
-$ wget https://github.com/enasequence/webin-cli/releases/download/v4.0.0/webin-cli-4.0.0.jar
+$ wget https://github.com/enasequence/webin-cli/releases/download/6.7.2/webin-cli-6.7.2.jar
 
 $ gzip -k GCF_000008865.2.embl
 $ gzip -k chrom-list.tsv
-$ java -jar webin-cli-4.0.0.jar -submit -userName=<EMAIL> -password <PWD> -context genome -manifest manifest.tsv
+$ java -jar webin-cli-6.7.2.jar -submit -context genome -manifest manifest.tsv -userName=<EMAIL> -password <PWD>
 ```
 
 Exemplarey manifest.tsv and chrom-list.tsv files might look like:
