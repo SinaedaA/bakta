@@ -557,15 +557,15 @@ Please, have a look at the [documentation]((https://www.ncbi.nlm.nih.gov/genbank
 # download table2asn for Linux
 $ wget https://ftp.ncbi.nlm.nih.gov/asn1-converters/by_program/table2asn/linux64.table2asn.gz
 $ gunzip linux64.table2asn.gz
+$ chmod 755 linux64.table2asn 
 
 # or MacOS
 $ wget https://ftp.ncbi.nlm.nih.gov/asn1-converters/by_program/table2asn/mac.table2asn.gz
 $ gunzip mac.table2asn.gz
-
-$ chmod 755 linux64.table2asn.gz mac.table2asn.gz
+$ chmod 755 mac.table2asn
 
 # create the SQN file:
-$ linux64.table2asn -M n -J -c w -t template.txt -V vbt -l paired-ends -i GCF_000008865.2.fna -f GCF_000008865.2.gff3 -o GCF_000008865.2.sqn -Z
+$ linux64.table2asn -M n -J -c wx -t template.txt -V vbt -l paired-ends -i GCF_000008865.2.fna -f GCF_000008865.2.gff3 -o GCF_000008865.2.sqn -Z
 ```
 
 ### ENA
