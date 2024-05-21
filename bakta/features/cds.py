@@ -119,7 +119,7 @@ def create_cdss(genes, contig):
             partial_cdss_per_sequence.append(cds)
         else:
             cdss_per_sequence.append(cds)
-        aa = gene.translate(translation_table=cfg.translation_table).upper()
+        aa = gene.translate(translation_table=cfg.translation_table, strict=False).upper()
         if('truncated' not in cds or cds['truncated'] == bc.FEATURE_END_5_PRIME):
             aa = aa[:-1]  # discard trailing asterisk
         cds['aa'] = aa
