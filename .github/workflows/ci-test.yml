@@ -36,8 +36,8 @@ jobs:
             - bioconda
           subdir: osx-64
         init-shell: bash
-        cache-environment: true
-        cache-downloads: true
+        cache-environment: false
+        cache-downloads: false
         post-cleanup: 'all'
     - name: Install PyTest
       run: micromamba install pytest
