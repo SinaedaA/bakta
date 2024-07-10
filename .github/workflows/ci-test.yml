@@ -34,14 +34,12 @@ jobs:
           channels:
             - conda-forge
             - bioconda
+          subdirs:
+            - osx-64
         init-shell: bash
         cache-environment: true
         cache-downloads: true
         post-cleanup: 'all'
-    - name: Config for MacOS
-      if: ${{ matrix.os == 'macos-latest' }}
-      run: micromamba config --add subdirs osx-64
-      shell: bash -l {0}
     - name: Install PyTest
       run: micromamba install pytest
       shell: bash -l {0}
