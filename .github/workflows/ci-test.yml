@@ -34,8 +34,7 @@ jobs:
           channels:
             - conda-forge
             - bioconda
-          subdirs:
-            - osx-64
+          subdir: osx-64
         init-shell: bash
         cache-environment: true
         cache-downloads: true
